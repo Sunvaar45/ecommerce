@@ -26,10 +26,7 @@ class ProductsController extends Controller
         $products = Products::where('category_id', $categoryId)
             ->where('status', 1)
             ->get();
-
-        if ($products->isEmpty()) {
-            return null;
-        }
+            
         return $products;
     }
 }
