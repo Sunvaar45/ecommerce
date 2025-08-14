@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function getActiveCategories()
     {
-        $categories = Categories::where('active_status', 1)->get();
+        $categories = Categories::where('status', 1)->get();
         return $categories;
     }
 }

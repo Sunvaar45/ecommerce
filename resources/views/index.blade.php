@@ -52,7 +52,7 @@
                     <ul class="navbar-nav">
                         @foreach ($categories as $category)
                             <li class="nav-item">
-                                <a href="{{ $category->category_url }}" class="nav-link ps-0">{{ $category->category_name }}</a>
+                                <a href="{{ url($category->id) }}" class="nav-link ps-0">{{ $category->name }}</a>
                             </li>
                         @endforeach
 
@@ -93,7 +93,7 @@
                         <!-- menu -->
                         <nav class="nav nav-pills flex-column flex-nowrap overflow-auto slider_nav">
                             @foreach ($categories as $category)
-                                <a href="{{ $category->category_url }}" class="nav-link">{{ $category->category_name }}</a>
+                                <a href="#" class="nav-link">{{ $category->name }}</a>
                             @endforeach
                             <!-- <a href="#" class="nav-link active">Elektronik</a>
                             <a href="#" class="nav-link">Giyim</a>
