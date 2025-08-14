@@ -52,7 +52,8 @@
                     <ul class="navbar-nav">
                         @foreach ($categories as $category)
                             <li class="nav-item">
-                                <a href="{{ url($category->id) }}" class="nav-link ps-0">{{ $category->name }}</a>
+                                <a href="{{ route('category.show', ['id' => $category->id]) }}"
+                                    class="nav-link ps-0">{{ $category->name }}</a>
                             </li>
                         @endforeach
 
