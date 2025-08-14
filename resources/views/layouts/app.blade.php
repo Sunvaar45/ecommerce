@@ -13,7 +13,7 @@
 <body class="bg-light">
 
     {{-- Header and Navbar --}}
-    @include('partials.navbar')
+    @include('partials.header')
 
     {{-- Main Content --}}
     <main>
@@ -25,6 +25,7 @@
 
     {{-- Scripts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

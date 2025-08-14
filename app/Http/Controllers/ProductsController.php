@@ -8,17 +8,20 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    public function showProducts($categoryId)
+    {
+        $category = $this->getCategoryById($categoryId);
+        $products = $this->getProductsByCategory($categoryId);
+        return view('category_products', [
+            'category' => $category,
+            'products' => $products,
+        ]);
+    }
+
     public function getCategoryById($id)
     {
         $category = Categories::find($id);
-        if (!$category) {
-            return response()->json(['message' => 'Category not found'], 404);
-        }
-        // return response()->json($category);
-        return view('category_products', [
-            'category' => $category,
-            'products' => $this->getProductsByCategory($category->id)
-        ]);
+        return $category;
     }
 
     public function getProductsByCategory($categoryId)
@@ -26,7 +29,6 @@ class ProductsController extends Controller
         $products = Products::where('category_id', $categoryId)
             ->where('status', 1)
             ->get();
-            
         return $products;
     }
 }
