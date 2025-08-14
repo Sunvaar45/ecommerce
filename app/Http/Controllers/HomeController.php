@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = $this->getCategories();
+        return view('index', [
+            'categories' => $categories,
+        ]);
+    }
+
+    public function getCategories()
+    {
+        $categories = Categories::all();
+        return $categories;
     }
 }

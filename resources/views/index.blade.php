@@ -50,7 +50,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
+                        @foreach ($categories as $category)
+                            <li class="nav-item">
+                                <a href="#" class="nav-link ps-0">{{ $category->category_name }}</a>
+                            </li>
+                        @endforeach
+
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link ps-0">Elektronik</a>
                         </li>
                         <li class="nav-item">
@@ -72,7 +78,7 @@
                                 <li><a href="#" class="dropdown-item">Kategori 2</a></li>
                                 <li><a href="#" class="dropdown-item">Kategori 3</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
