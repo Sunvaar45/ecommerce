@@ -8,4 +8,6 @@ use Illuminate\Support\Facades\Route;
 /* home routes */
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/category/{id}', [ProductsController::class, 'getCategoryById'])->name('category.show');
+/* product routes */
+Route::get('/category/{id}', [ProductsController::class, 'getCategoryById'])
+    ->name('category.show');

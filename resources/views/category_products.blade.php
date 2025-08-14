@@ -1,6 +1,3 @@
-@extends('layouts.app') <!-- Remove if you don't use layouts -->
-
-@section('content')
 <div class="container mt-4">
     <h2>{{ $category->name }} Ürünleri</h2>
     @if($products->count())
@@ -31,4 +28,3 @@
         <p>Bu kategoride ürün bulunamadı.</p>
     @endif
 </div>
-@endsection
