@@ -9,15 +9,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = $this->getCategories();
+        $categories = $this->getActiveCategories();
         return view('index', [
             'categories' => $categories,
         ]);
     }
 
-    public function getCategories()
+    public function getActiveCategories()
     {
-        $categories = Categories::all();
+        $categories = Categories::where('active_status', 1)->get();
         return $categories;
     }
 }
