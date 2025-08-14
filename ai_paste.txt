@@ -1,0 +1,3 @@
+@workspace im routing to this view when user choses a category.
+i need to list products of the category. i am grabbing the correct products
+from the db as $products and the category as $chosenCategory
