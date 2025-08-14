@@ -10,18 +10,18 @@ class ProductsController extends Controller
 {
     public function showProducts($categoryId)
     {
-        $category = $this->getCategoryById($categoryId);
+        $chosenCategory = $this->getCategoryById($categoryId);
         $products = $this->getProductsByCategory($categoryId);
         return view('category_products', [
-            'category' => $category,
+            'chosenCategory' => $chosenCategory,
             'products' => $products,
         ]);
     }
 
     public function getCategoryById($id)
     {
-        $category = Categories::find($id);
-        return $category;
+        $chosenCategory = Categories::find($id);
+        return $chosenCategory;
     }
 
     public function getProductsByCategory($categoryId)

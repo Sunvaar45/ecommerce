@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <h2>{{ $category->name }} Ürünleri</h2>
+    <h2>{{ $chosenCategory->name }} Ürünleri</h2>
     @if($products->count())
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
             @foreach($products as $product)
