@@ -20,10 +20,4 @@ class HomeController extends Controller
         $categories = Categories::where('status', 1)->get();
         return $categories;
     }
-    
-    public function getCategoryById($id)
-    {
-        $chosenCategory = Categories::find($id);
-        return $chosenCategory;
-    }
 }
