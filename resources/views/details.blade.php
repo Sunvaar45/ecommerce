@@ -79,18 +79,9 @@
                         <dl class="row border-bottom">
                             <dt class="col-3">Renk</dt>
                             <dd class="col-9">Yıldız Işığı</dd>
-                            <dt class="col-3">Bağlantı Özellikleri</dt>
-                            <dd class="col-9">GPS</dd>
+
                         </dl>
-                        <div class="row mb-3">
-                            <div class="col-md-4 col-6">
-                                <label class="form-label">Kasa Boyutu</label>
-                                <select class="form-select">
-                                    <option value="">41 mm</option>
-                                    <option value="">45 mm</option>
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="buttons">
                             <a href="#" class="btn btn-warning">
                                 <i class="fa fa-shopping-basket me-1"></i> Sepete Ekle
