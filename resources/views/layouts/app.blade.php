@@ -15,6 +15,15 @@
     {{-- Header and Navbar --}}
     @include('partials.header')
 
+    {{-- Breadcrumbs (optional) --}}
+    @hasSection('breadcrumb')
+        <section class="bg-primary p-3">
+            <div class="container">
+                @yield('breadcrumb')
+            </div>
+        </section>
+    @endif
+
     {{-- Main Content --}}
     <main>
         @yield('content')
@@ -25,6 +34,7 @@
 
     {{-- Scripts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    @yield('scripts')
 
 </body>
 

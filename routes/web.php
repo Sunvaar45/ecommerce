@@ -9,4 +9,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 /* product routes */
-Route::get('/category/{id}', [ProductsController::class, 'showProductsByCategory'])->name('category.show');
+Route::get('/category/{id}', [ProductsController::class, 'showProductsByCategory'])
+    ->name('category.show');
