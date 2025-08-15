@@ -73,6 +73,7 @@
                             </div>
                         @endif
 
+                        {{-- product description --}}
                         <div class="product-description mb-3">{{ $product->description }}</div>
                         
                         <dl class="row border-bottom">

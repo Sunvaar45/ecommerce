@@ -10,15 +10,11 @@ class ProductsController extends Controller
 {
     public function showProductsByCategory($categoryId)
     {
-        // $categories = (new HomeController())->getActiveCategories();
-
         $chosenCategory = $this->getCategoryById($categoryId);
         $products = $this->getProductsByCategory($categoryId);
         return view('category_products', [
             'chosenCategory' => $chosenCategory,
             'products' => $products,
-
-            // 'categories' => $categories,
         ]);
     }
 

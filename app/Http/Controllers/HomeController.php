@@ -9,9 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // $categories = $this->getActiveCategories();
         return view('index', [
-            // 'categories' => $categories,
         ]);
     }
 
