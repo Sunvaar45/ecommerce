@@ -6,7 +6,7 @@
             <h3 class="h4 mb-1 mb-lg-3" style="text-align: center;">"{{ $chosenCategory->name }}" Kategorisi Ürünleri</h3>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
                 @forelse ($products as $product)
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card shadow">
                             <div class="img-wrap">
                                 @if($product->discount_price !== null && $product->discount_price < $product->price)
@@ -31,7 +31,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    <x-product-card :product="$product" />
                 @empty
                     <div class="col-12">
                         <div class="alert alert-info">Bu kategoride ürün bulunamadı.</div>
