@@ -4,11 +4,11 @@
     <nav>
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
-                <a href="/">Anasayfa</a>
+                <a href="/">Ana Sayfa</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('category.show', $product->category->id) }}">
-                    {{ $product->category->name }}</a>
+                <a href="{{ route('category.show', $productCategory->id) }}">
+                    {{ $productCategory->name }}</a>
             </li>
             <li class="breadcrumb-item">
                 {{ $product->name }}...
