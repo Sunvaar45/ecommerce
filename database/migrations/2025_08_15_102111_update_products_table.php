@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->integer('stock')->default(0)->after('discount_price');
+            $table->string('color')->after('stock');
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('stock');
+            $table->dropColumn('stock', 'color');
         });
     }
 };

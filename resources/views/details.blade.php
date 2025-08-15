@@ -77,7 +77,7 @@
                         
                         <dl class="row border-bottom">
                             <dt class="col-3">Renk</dt>
-                            <dd class="col-9">Yıldız Işığı</dd>
+                            <dd class="col-9">{{ $product->color }}</dd>
 
                         </dl>
 
