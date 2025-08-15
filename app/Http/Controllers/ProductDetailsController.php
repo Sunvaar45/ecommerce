@@ -17,7 +17,9 @@ class ProductDetailsController extends Controller
 
     public function getProductDetailsById($id)
     {
-        $product = Products::where('status', 1)->find($id)->load('category');
+        $product = Products::where('status', 1)->find($id)
+            ->load('category');
+            
         return $product;
     }
 
