@@ -7,25 +7,28 @@ use Illuminate\Http\Request;
 
 class ProductDetailsController extends Controller
 {
-    public function showProductDetails()
+    public function showProductDetails($productId)
     {
-        $product = $this->getProductDetailsById(request()->id);
+        $product = $this->getProductDetailsById($productId);
+        $productCategory = $this->getCategoryByProduct($productId);
         return view('details', [
             'product' => $product,
+            'productCategory' => $productCategory,
         ]);
     }
 
-    public function getProductDetailsById($id)
+    public function getProductDetailsById($productId)
     {
-        $product = Products::where('status', 1)->find($id)
-            ->load('category');
-            
+        $product = Products::with('category')
+            ->where('status', 1)
+            ->find($productId);
+
         return $product;
     }
 
     public function getCategoryByProduct($productId)
     {
-        $category = Products::find($productId)->category;
-        return $category;
+        $productCategory = Products::find($productId)->category;
+        return $productCategory;
     }
 }
