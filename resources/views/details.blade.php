@@ -7,7 +7,8 @@
                 <a href="/">Anasayfa</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ $product->category }}">{{ $product->category->name }}</a>
+                <a href="{{ route('category.show', $product->category->id) }}">
+                    {{ $product->category->name }}</a>
             </li>
             <li class="breadcrumb-item">
                 {{ $product->name }}...
