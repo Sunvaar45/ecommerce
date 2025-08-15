@@ -19,7 +19,7 @@
                                 <a href="#" class="float-end btn btn-light">
                                     <i class="fa-regular fa-heart"></i>
                                 </a>
-                                <a href="#"
+                                <a href="{{ route('product.show', $product->id) }}"
                                     class="title text-truncate">{{ $product->name }}</a>
                                 <div class="price-wrap">
                                     <span class="price-discount">

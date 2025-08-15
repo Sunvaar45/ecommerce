@@ -4,20 +4,19 @@
     <nav>
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
-                <a href="#">Anasayfa</a>
+                <a href="/">Anasayfa</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Elektronik</a>
+                <a href="{{ $product->category }}">{{ $product->category->name }}</a>
             </li>
             <li class="breadcrumb-item">
-                Apple Watch Yıldız Işığı...
+                {{ $product->name }}...
             </li>
         </ol>
     </nav>
 @endsection
 
 @section('content')
-
     <section class="mt-3">
         <div class="container">
             <div class="row">
