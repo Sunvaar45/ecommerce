@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         $categories = $this->getActiveCategories();
         return view('index', [
-            'categories' => $categories,
+            // 'categories' => $categories,
         ]);
     }
 

@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
     public function showProductsByCategory($categoryId)
     {
-        $categories = (new HomeController())->getActiveCategories();
+        // $categories = (new HomeController())->getActiveCategories();
 
         $chosenCategory = $this->getCategoryById($categoryId);
         $products = $this->getProductsByCategory($categoryId);
@@ -18,7 +18,7 @@ class ProductsController extends Controller
             'chosenCategory' => $chosenCategory,
             'products' => $products,
 
-            'categories' => $categories,
+            // 'categories' => $categories,
         ]);
     }
 
