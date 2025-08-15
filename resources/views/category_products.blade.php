@@ -9,7 +9,7 @@
                     <div class="col">
                         <div class="card shadow">
                             <div class="img-wrap">
-                                @if($product->discount)
+                                @if($product->discount_price !== null && $product->discount_price < $product->price)
                                     <span class="badge bg-success">İndirim</span>
                                 @endif
                                 <img src="{{ asset('img/' . $product->image) }}" alt="{{ $product->name }}"
