@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
+            $table->boolean('has_discount')->default(false);
             $table->decimal('discount_price', 10, 2)->nullable();
+            $table->integer('stock')->default(0);
+            $table->string('color')->nullable();
             $table->string('image_url')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->boolean('status')->default(true);
