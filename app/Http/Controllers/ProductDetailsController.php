@@ -11,9 +11,12 @@ class ProductDetailsController extends Controller
     {
         $product = $this->getProductDetailsById($productId);
         $productCategory = $this->getCategoryByProduct($productId);
+        $similarProducts = $this->getSimilarProductsByCategory($productCategory->id);
+
         return view('details', [
             'product' => $product,
             'productCategory' => $productCategory,
+            'similarProducts' => $similarProducts,
         ]);
     }
 
@@ -30,5 +33,14 @@ class ProductDetailsController extends Controller
     {
         $productCategory = Products::find($productId)->category;
         return $productCategory;
+    }
+
+    public function getSimilarProductsByCategory($categoryId)
+    {
+        $similarProducts = Products::where('category_id', $categoryId)
+            ->where('status', 1)
+            ->get();
+
+        return $similarProducts;
     }
 }

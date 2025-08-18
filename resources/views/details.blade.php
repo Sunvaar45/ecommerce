@@ -74,7 +74,7 @@
 
                         {{-- product description --}}
                         <div class="product-description mb-3">{{ $product->description }}</div>
-                        
+
                         <dl class="row border-bottom">
                             <dt class="col-3">Renk</dt>
                             <dd class="col-9">{{ $product->color }}</dd>
@@ -98,7 +98,19 @@
     <section class="mt-3">
         <div class="container">
             <h4 class="mb-3">Benzer Ürünler</h4>
-            <div class="row gy-3">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
+            @forelse ($similarProducts as $similarProduct)
+                
+                {{-- skip the same product --}}
+                @if ($similarProduct->id == $product->id)
+                    @continue
+                @endif
+
+                <x-product-card :product="$similarProduct" />
+            @empty
+                <p>Benzer ürün bulunamadı.</p>
+            @endforelse
+            <!-- <div class="row gy-3">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="card shadow">
                         <div class="img-wrap">
@@ -119,66 +131,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="card shadow">
-                        <div class="img-wrap">
-                            <span class="fa fa-regular fa-heart"></span>
-                            <img src="img/2.jpeg" alt="ürün 1" class="card-img-top">
-                        </div>
-
-                        <div class="border-top info-wrap">
-                            <a href="#" class="title text-truncate">Apple Watch Yıldız Işığı Alüminyum Kasa ve spor
-                                Kordon</a>
-                            <div class="price-wrap mb-3">
-                                <span class="price-discount">45.999 ₺</span>
-                                <del class="price">49.999 ₺</del>
-                            </div>
-                            <a href="#" class="btn btn-light w-100">
-                                <i class="fa fa-shopping-basket me-1"></i> Sepete Ekle
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="card shadow">
-                        <div class="img-wrap">
-                            <span class="fa fa-regular fa-heart"></span>
-                            <img src="img/2.jpeg" alt="ürün 1" class="card-img-top">
-                        </div>
-
-                        <div class="border-top info-wrap">
-                            <a href="#" class="title text-truncate">Apple Watch Yıldız Işığı Alüminyum Kasa ve spor
-                                Kordon</a>
-                            <div class="price-wrap mb-3">
-                                <span class="price-discount">45.999 ₺</span>
-                                <del class="price">49.999 ₺</del>
-                            </div>
-                            <a href="#" class="btn btn-light w-100">
-                                <i class="fa fa-shopping-basket me-1"></i> Sepete Ekle
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="card shadow">
-                        <div class="img-wrap">
-                            <span class="fa fa-regular fa-heart"></span>
-                            <img src="img/2.jpeg" alt="ürün 1" class="card-img-top">
-                        </div>
-
-                        <div class="border-top info-wrap">
-                            <a href="#" class="title text-truncate">Apple Watch Yıldız Işığı Alüminyum Kasa ve spor
-                                Kordon</a>
-                            <div class="price-wrap mb-3">
-                                <span class="price-discount">45.999 ₺</span>
-                                <del class="price">49.999 ₺</del>
-                            </div>
-                            <a href="#" class="btn btn-light w-100">
-                                <i class="fa fa-shopping-basket me-1"></i> Sepete Ekle
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            </div> -->
             </div>
         </div>
     </section>
