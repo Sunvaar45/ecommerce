@@ -4,7 +4,7 @@
             @if($product->has_discount)
                 <span class="badge bg-success">İndirim</span>
             @endif
-            <img src="{{ url('http://127.0.0.1:8001/storage/images/products/' . $product->id . '/' . $product->image_url) }}" 
+            <img src="{{ url('http://127.0.0.1:8001/storage/images/products/' . $product->image_url) }}" 
                 alt="{{ $product->name }}" class="card-img-top">
         </div>
         <div class="border-top info-wrap">
