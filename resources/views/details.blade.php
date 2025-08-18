@@ -61,7 +61,7 @@
                         <!-- product stock - make dynamic -->
                         <p class="text-muted">{{ $product->stock > 0 ? 'Stokta Var' : 'Stokta Yok' }}</p>
 
-                        @if ($product->discount_price !== null && $product->discount_price < $product->price)
+                        @if ($product->has_discount)
                             <div class="mb-3">
                                 <b class="price h5">{{ $product->discount_price }} ₺</b>
                                 <del class="price">{{ $product->price }} ₺</del>
