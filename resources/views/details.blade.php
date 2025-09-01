@@ -36,6 +36,10 @@
                         </div>
                         <div class="thumbs-wrap">
                             @foreach ($productImages as $image)
+                                @if ($image->id == $mainImage?->id)
+                                    @continue
+                                @endif
+
                                 <a href="{{ asset('storage/images/products/' . $image->image_url) }}" data-type="image" data-fslightbox>
                                     <img src="{{ asset('storage/images/products/' . $image->image_url) }}" height="60" alt="{{ $image->image_alt }}">
                                 </a>
