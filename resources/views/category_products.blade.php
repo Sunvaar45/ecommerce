@@ -32,7 +32,10 @@
                             </div>
                         </div>
                     </div> -->
-                    <x-product-card :product="$product" />
+                    <x-product-card
+                        :product="$product"
+                        
+                    />
                 @empty
                     <div class="col-12">
                         <div class="alert alert-info">Bu kategoride ürün bulunamadı.</div>

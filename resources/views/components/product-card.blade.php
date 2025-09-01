@@ -4,8 +4,13 @@
             @if($product->has_discount)
                 <span class="badge bg-success">İndirim</span>
             @endif
-            <img src="{{ asset('storage/images/products/' . $product->id . '/' . $product->image_url) }}" 
-                alt="{{ $product->name }}" class="card-img-top">
+
+            @if ($product->mainImage)
+                <img src="{{ asset('storage/images/products/' . $product->mainImage->image_url) }}" 
+                    alt="{{ $product->mainImage->image_alt }}" class="card-img-top">
+            @else
+                <img src="{{ asset('storage/images/products/default.png') }}" alt="{{ $product->name }}" class="card-img-top">
+            @endif
         </div>
         <div class="border-top info-wrap">
             <a href="#" class="float-end btn btn-light">
