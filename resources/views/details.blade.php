@@ -24,12 +24,23 @@
                 <div class="col-lg-5">
                     <div class="gallery-wrap">
                         <div class="img-big-wrap img-thumbnail">
-                            <a href="img/1-big.jpeg" data-type="image" data-fslightbox>
-                                <img src="img/1.jpeg" alt="">
-                            </a>
+                            @php
+                                $mainImage = $productImages->firstWhere('is_main', true);
+                            @endphp    
+
+                            @if ($mainImage)
+                                <a href="{{ asset('storage/images/products/' . $mainImage->image_url) }}" data-type="image" data-fslightbox>
+                                    <img src="{{ asset('storage/images/products/' . $mainImage->image_url) }}" alt="{{ $mainImage->image_alt }}">
+                                </a>
+                            @endif
                         </div>
                         <div class="thumbs-wrap">
-                            <a href="img/1-big.jpeg" data-type="image" data-fslightbox>
+                            @foreach ($productImages as $image)
+                                <a href="{{ asset('storage/images/products/' . $image->image_url) }}" data-type="image" data-fslightbox>
+                                    <img src="{{ asset('storage/images/products/' . $image->image_url) }}" height="60" alt="{{ $image->image_alt }}">
+                                </a>
+                            @endforeach
+                            <!-- <a href="img/1-big.jpeg" data-type="image" data-fslightbox>
                                 <img src="img/1.jpeg" height="60" alt="">
                             </a>
                             <a href="img/2-big.jpeg" data-type="image" data-fslightbox>
@@ -40,7 +51,7 @@
                             </a>
                             <a href="img/4-big.jpeg" data-type="image" data-fslightbox>
                                 <img src="img/4.jpeg" height="60" alt="">
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
