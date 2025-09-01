@@ -16,7 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('image_url');
             $table->string('image_alt')->nullable();
-            $table->boolean('status')->default(false);
+            $table->integer('sort_order')->default(0);
+            $table->boolean('is_main')->default(false)
+                ->comment('Görsel ürün kartında gözüken resim');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
