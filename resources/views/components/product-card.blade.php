@@ -6,17 +6,23 @@
             @endif
 
             @if ($product->mainImage)
-                <img src="{{ asset('storage/images/products/' . $product->mainImage->image_url) }}" 
-                    alt="{{ $product->mainImage->image_alt }}" class="card-img-top">
+                <a href="{{ route('product.show', $product->id) }}">
+                    <img src="{{ asset('storage/images/products/' . $product->mainImage->image_url) }}" 
+                        alt="{{ $product->mainImage->image_alt }}" class="card-img-top">
+                </a>
             @else
-                <img src="{{ asset('storage/images/products/default.png') }}" alt="{{ $product->name }}" class="card-img-top">
+                <a href="{{ route('product.show', $product->id) }}">
+                    <img src="{{ asset('storage/images/products/default.png') }}" alt="{{ $product->name }}" class="card-img-top">
+                </a>
             @endif
         </div>
         <div class="border-top info-wrap">
             <a href="#" class="float-end btn btn-light">
                 <i class="fa-regular fa-heart"></i>
             </a>
-            <a href="{{ route('product.show', $product->id) }}" class="title text-truncate">{{ $product->name }}</a>
+            <a href="{{ route('product.show', $product->id) }}" class="title text-truncate">
+                {{ $product->name }}
+            </a>
             <div class="price-wrap">
                 @if ($product->has_discount)
                     <span class="price-discount">

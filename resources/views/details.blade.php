@@ -30,9 +30,17 @@
 
                             @if ($mainImage)
                                 <a href="{{ asset('storage/images/products/' . $mainImage->image_url) }}" data-type="image" data-fslightbox>
-                                    <img src="{{ asset('storage/images/products/' . $mainImage->image_url) }}" alt="{{ $mainImage->image_alt }}">
+                                    <img src="{{ asset('storage/images/products/' . $mainImage->image_url) }}"
+                                        alt="{{ $mainImage->image_alt }}">
+                                </a>
+                            @else
+                                <a href="{{ asset('storage/images/products/default.png') }}" data-type="image" data-fslightbox>
+                                    <img src="{{ asset('storage/images/products/default.png') }}" 
+                                    alt="{{ $product->name }}">
                                 </a>
                             @endif
+
+                            
                         </div>
                         <div class="thumbs-wrap">
                             @foreach ($productImages as $image)
@@ -112,19 +120,27 @@
 
     <section class="mt-3">
         <div class="container">
-            <h4 class="mb-3">Benzer Ürünler</h4>
+            <h4 class="mb-3 text-center">Benzer Ürünler</h4>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2">
-            @forelse ($similarProducts as $similarProduct)
-                
+
+            @php $count = 0; @endphp
+            @foreach ($similarProducts as $similarProduct)
+                @php $count++; @endphp
+
                 {{-- skip the same product --}}
                 @if ($similarProduct->id == $product->id)
                     @continue
                 @endif
 
                 <x-product-card :product="$similarProduct" />
-            @empty
-                <p>Benzer ürün bulunamadı.</p>
-            @endforelse
+            @endforeach
+            
+            @if ($count <= 1)
+                <div class="col-12">
+                    <div class="alert alert-info">Benzer ürün bulunamadı.</div>
+                </div>
+            @endif
+
             <!-- <div class="row gy-3">
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="card shadow">
