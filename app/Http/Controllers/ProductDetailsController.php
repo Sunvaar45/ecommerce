@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductAttributeValues;
 use App\Models\ProductImages;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class ProductDetailsController extends Controller
     {
         $product = $this->getProductDetailsById($productId);
         $productImages = $this->getProductImagesByProductId($productId);
+        $productAttributeValues = $this->getProductAttributeValuesByProductId($productId);
 
         $productCategory = $this->getCategoryByProduct($productId);
         $similarProducts = $this->getSimilarProductsByCategory($productCategory->id);
@@ -19,6 +21,7 @@ class ProductDetailsController extends Controller
         return view('details', [
             'product' => $product,
             'productImages' => $productImages,
+            'productAttributeValues' => $productAttributeValues,
             
             'productCategory' => $productCategory,
             'similarProducts' => $similarProducts,
@@ -41,6 +44,15 @@ class ProductDetailsController extends Controller
             ->get();
 
         return $productImages;
+    }
+    public function getProductAttributeValuesByProductId($productId)
+    {
+        $productAttributeValues = ProductAttributeValues::with('attribute')
+            ->where('product_id', $productId)
+            ->where('status', 1)
+            ->orderBy('sort_order', 'asc')
+            ->get();
+        return $productAttributeValues;
     }
 
     public function getCategoryByProduct($productId)

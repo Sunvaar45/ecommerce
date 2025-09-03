@@ -1,3 +1,5 @@
+@props(['product', 'productImages', 'productAttributeValues', 'productCategory', 'similarProducts'])
+
 @extends('layouts.app')
 
 @section('breadcrumb')
@@ -99,9 +101,12 @@
                         <div class="product-description mb-3">{!! $product->description !!}</div>
 
                         <dl class="row border-bottom">
-                            <dt class="col-3">Renk</dt>
-                            <dd class="col-9">{{ $product->color }}</dd>
-
+                            @foreach ($productAttributeValues as $attributeValue)
+                                <dt class="col-3">{{ $attributeValue->attribute->name }}</dt>
+                                <dd class="col-9">{{ $attributeValue->value }}</dd>
+                            @endforeach
+                            <!-- <dt class="col-3">Renk</dt>
+                            <dd class="col-9">{{ $product->color }}</dd> -->
                         </dl>
 
                         <div class="buttons">
