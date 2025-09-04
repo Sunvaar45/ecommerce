@@ -15,7 +15,9 @@ class HomeController extends Controller
 
     public function getActiveCategories()
     {
-        $categories = Categories::where('status', 1)->get();
+        $categories = Categories::where('status', 1)
+            ->orderBy('sort_order', 'asc')
+            ->get();
         return $categories;
     }
 }

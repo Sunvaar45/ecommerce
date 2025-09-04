@@ -12,7 +12,9 @@
                         <nav class="nav nav-pills flex-column flex-nowrap overflow-auto slider_nav">
                             @foreach ($categories as $category)
                                 <a href="{{ route('category.show', ['id' => $category->id]) }}"
-                                    class="nav-link">{{ $category->name }}</a>
+                                    class="nav-link">
+                                    {{ $category->name }}
+                                </a>
                             @endforeach
                             <!-- <a href="#" class="nav-link active">Elektronik</a>
                             <a href="#" class="nav-link">Giyim</a>
