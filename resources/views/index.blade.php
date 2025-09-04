@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'E-Commerce - Anasayfa')
+
 @section('content')
     <section class="mt-3">
         <div class="container">
