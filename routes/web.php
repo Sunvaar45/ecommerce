@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountFormController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
@@ -26,3 +27,9 @@ Route::get('/category/{id}', [ProductsController::class, 'showProductsByCategory
 
 Route::get('/product/{id}', [ProductDetailsController::class, 'showProductDetails'])
     ->name('product.show');
+
+/* account routes */
+Route::middleware('auth')->prefix('/account')->group(function () {
+    Route::get('/', [AccountFormController::class, 'edit'])->name('account.edit');
+    Route::post('/update', [AccountFormController::class, 'update'])->name('account.update');
+});
