@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\HomeController;
+use App\Models\FaviconAndTitle;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,7 +24,16 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $categories = (new HomeController())->getActiveCategories();
-            $view->with('categories', $categories);
+
+            $faviconAndTitle = FaviconAndTitle::first();
+            $favicon = $faviconAndTitle->favicon ?? 'default_favicon.png';
+            $siteTitle = $faviconAndTitle->title ?? 'E-Commerce';
+
+            $view->with([
+                'categories' => $categories,
+                'favicon' => $favicon,
+                'siteTitle' => $siteTitle,
+            ]);
         });
     }
 }

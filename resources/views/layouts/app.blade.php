@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" />
     <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/favicon/' . $favicon) }}">
+    <title>@yield('title', '{{ $siteTitle }}')</title>
 </head>
 
 <body class="bg-light">
 
     {{-- Header and Navbar --}}
     @include('partials.header')
-
-    {{-- title --}}
-    <title>@yield('title', 'E-Commerce')</title>
 
     {{-- Breadcrumbs (optional) --}}
     @hasSection('breadcrumb')
