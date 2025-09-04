@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 
     <link rel="icon" type="image/png" href="{{ asset('storage/images/favicon/' . $favicon) }}">
-    <title>@yield('title', '{{ $siteTitle }}')</title>
+    <title>@yield('title', $siteTitle)</title>
 </head>
 
 <body class="bg-light">
