@@ -102,6 +102,10 @@
 
                         <dl class="row border-bottom">
                             @foreach ($productAttributeValues as $attributeValue)
+                                @if ($attributeValue->attribute->status == 0)
+                                    @continue
+                                @endif
+                                
                                 <dt class="col-3">{{ $attributeValue->attribute->name }}</dt>
                                 <dd class="col-9">{{ $attributeValue->value }}</dd>
                             @endforeach
