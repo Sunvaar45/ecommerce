@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /* home routes */
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /* auth routes */
 Route::prefix('/')->group(function () {

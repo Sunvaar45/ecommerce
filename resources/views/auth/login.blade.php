@@ -46,3 +46,7 @@
         </div>
     </div>
 @endsection
+
+@section('javascript')
+<script src="{{ asset('js/hideAlerts.js') }}"></script>
+@endsection
