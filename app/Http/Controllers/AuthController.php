@@ -14,14 +14,15 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
     public function login(Request $request)
     {
-        // Handle login logic
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
+        // login attempt
         if (Auth::attempt([
             'email' => $credentials['email'],
             'password' => $credentials['password'],
@@ -32,22 +33,37 @@ class AuthController extends Controller
             return redirect()->intended(route('home'));
         }
 
+        // account status check
         $user = User::where('email', $request->email)->first();
-        if ($user && $user->status == 0) {
+        if ($user && $user->status == 0 &&
+            Hash::check($request->password, $user->password
+        )) {
             return back()->with(
                 'error', 'Hesabın dondurulmuş. Lütfen destek ile iletişime geç.'
             )->onlyInput('email');
         }
 
+        // wrong credentials
         return back()->with([
             'error' => 'Bu bilgilerle eşleşen bir hesap bulunamadı.'
         ])->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
+
     public function register(Request $request)
     {
         // Handle registration logic
