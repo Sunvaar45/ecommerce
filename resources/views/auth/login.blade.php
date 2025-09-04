@@ -7,11 +7,16 @@
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-4">
                         <h4 class="mb-4 text-center" style="color: var(--primary);">Hoşgeldin</h4>
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
+
                         <form method="POST" action="{{ route('login.post') }}">
                             @csrf
 
                             <div class="mb-3">
-                                <label for="email" class="form-label fw-semibold">Email</label>
+                                <label for="email" class="form-label fw-semibold">E-Posta</label>
                                 <input id="email" type="text" name="email" value="{{ old('email') }}" autofocus
                                     class="form-control @error('email') is-invalid @enderror" placeholder="sen@örnek.com">
                                 @error('email')
@@ -20,7 +25,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <label for="password" class="form-label fw-semibold">Password</label>
+                                <label for="password" class="form-label fw-semibold">Şifre</label>
                                 <input id="password" type="password" name="password"
                                     class="form-control @error('password') is-invalid @enderror" placeholder="••••••••">
                                 @error('password')
