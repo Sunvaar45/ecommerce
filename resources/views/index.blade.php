@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'E-Commerce - Anasayfa')
+@section('title', $siteTitle . ' - Anasayfa')
 
 @section('content')
     <section class="mt-3">

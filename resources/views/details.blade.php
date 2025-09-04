@@ -1,5 +1,7 @@
 @props(['product', 'productImages', 'productAttributeValues', 'productCategory', 'similarProducts'])
 
+@section('title', $siteTitle . ' - ' . $product->name . ' Detayları')
+
 @extends('layouts.app')
 
 @section('breadcrumb')

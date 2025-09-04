@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $siteTitle . ' - ' . $chosenCategory->name . ' Ürünleri')
+
 @section('content')
     <section class="mt-3">
         <div class="container">
