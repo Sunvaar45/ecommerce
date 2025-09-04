@@ -8,9 +8,8 @@
                     <div class="card-body p-4">
                         <h4 class="mb-4 text-center" style="color: var(--primary);">Hoşgeldin</h4>
 
-                        @if (session('error'))
-                            <div class="alert alert-danger">{{ session('error') }}</div>
-                        @endif
+                        <x-success-alert />
+                        <x-error-alert />
 
                         <form method="POST" action="{{ route('login.post') }}">
                             @csrf
