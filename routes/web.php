@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AccountFormController;
+use App\Http\Controllers\Account\AccountInfoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
@@ -30,8 +30,8 @@ Route::get('/product/{id}', [ProductDetailsController::class, 'showProductDetail
 
 /* account routes */
 Route::middleware('auth')->prefix('/account')->group(function () {
-    Route::get('/information', [AccountFormController::class, 'edit'])->name('account.information.edit');
-    Route::post('/information/update', [AccountFormController::class, 'update'])->name('account.information.update');
+    Route::get('/information', [AccountInfoController::class, 'edit'])->name('account.information.edit');
+    Route::post('/information/update', [AccountInfoController::class, 'update'])->name('account.information.update');
 
     // Placeholders
     Route::get('/orders', function () {
