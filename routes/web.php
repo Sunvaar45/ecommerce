@@ -30,6 +30,6 @@ Route::get('/product/{id}', [ProductDetailsController::class, 'showProductDetail
 
 /* account routes */
 Route::middleware('auth')->prefix('/account')->group(function () {
-    Route::get('/', [AccountFormController::class, 'edit'])->name('account.edit');
-    Route::post('/update', [AccountFormController::class, 'update'])->name('account.update');
+    Route::get('/information', [AccountFormController::class, 'edit'])->name('account.edit');
+    Route::post('/information/update', [AccountFormController::class, 'update'])->name('account.update');
 });
