@@ -9,7 +9,13 @@
                 <div class="col-lg-5 col-sm-8 col-8 order-lg-last">
                     <div class="text-end">
                         <a href="{{ route('account.information.edit') }}" class="btn btn-light">
-                            <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Hesabım</span>
+                            <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">
+                                @if (!$user)
+                                    Giriş Yap
+                                @else
+                                    Hesabım
+                                @endif
+                            </span>
                         </a>
                         <a href="#" class="btn btn-light">
                             <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Listem</span>
