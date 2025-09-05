@@ -9,9 +9,7 @@ class AccountFormController extends Controller
 {
     public function edit()
     {
-        $user = Auth::user(); // Get the authenticated user
-        return view('auth.account-edit', [
-            'user' => $user
+        return view('account.information', [
         ]);
     }
 
@@ -19,7 +17,7 @@ class AccountFormController extends Controller
     {
         // Validation and update logic here
 
-        return redirect()->route('account.edit')
+        return redirect()->route('account.information.edit')
             ->with('success', 'Account updated successfully.');
     }
 }

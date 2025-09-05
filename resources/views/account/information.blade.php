@@ -14,7 +14,7 @@
                         <x-success-alert />
                         <x-error-alert />
 
-                        <form method="POST" action="{{ route('account.update') }}">
+                        <form method="POST" action="{{ route('account.information.update') }}">
                             @csrf
 
                             <div class="mb-3">

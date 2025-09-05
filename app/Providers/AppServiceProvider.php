@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\HomeController;
 use App\Models\FaviconAndTitle;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
+            $user = Auth::user();
+
             $categories = (new HomeController())->getActiveCategories();
 
             $faviconAndTitle = FaviconAndTitle::first();
@@ -30,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             $siteTitle = $faviconAndTitle->title ?? 'E-Commerce';
 
             $view->with([
+                'user' => $user,
                 'categories' => $categories,
                 'favicon' => $favicon,
                 'siteTitle' => $siteTitle,
