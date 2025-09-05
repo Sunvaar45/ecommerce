@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountFormController extends Controller
 {
@@ -23,7 +24,22 @@ class AccountFormController extends Controller
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 
+        $user->update($request->only([
+            'name',
+            'email',
+        ]));
+
+        if ($request->filled('password')) {
+            $user->update([
+                'password' => Hash::make($request->input('password')),
+            ]);
+
+            Auth::logout();
+            return redirect()->route('login')
+                ->with('success', 'Şifreniz değiştirildi, lütfen tekrar giriş yapın.');      
+        }
+
         return redirect()->route('account.information.edit')
-            ->with('success', 'Account updated successfully.');
+            ->with('success', 'Hesap bilgileri güncellendi.');
     }
 }
