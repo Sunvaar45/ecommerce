@@ -5,16 +5,16 @@
             <small class="text-muted">{{ $user->name }}</small>
         </div>
         <ul class="list-group list-group-flush small">
-            <a href="{{ route('account.information') }}" class="list-group-item list-group-item-action">
+            <a href="{{ route('account.information.edit') }}" class="list-group-item list-group-item-action">
                 Kullanıcı Bilgilerim
             </a>
-            <a href="{{ route('account.addresses') }}" class="list-group-item list-group-item-action">
+            <a href="{{ route('account.addresses.edit') }}" class="list-group-item list-group-item-action">
                 Adres Bilgilerim
             </a>
-            <a href="{{ route('account.orders') }}" class="list-group-item list-group-item-action">
+            <a href="{{ route('account.orders.edit') }}" class="list-group-item list-group-item-action">
                 Siparişlerim
             </a>
-            <a href="{{ route('account.ratings') }}" class="list-group-item list-group-item-action">
+            <a href="{{ route('account.ratings.edit') }}" class="list-group-item list-group-item-action">
                 Değerlendirmelerim
             </a>
         </ul>

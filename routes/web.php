@@ -36,13 +36,13 @@ Route::middleware('auth')->prefix('/account')->group(function () {
     // Placeholders
     Route::get('/orders', function () {
         return view('account.orders');
-    })->name('account.orders');
+    })->name('account.orders.edit');
 
     Route::get('/ratings', function () {
         return view('account.ratings');
-    })->name('account.ratings');
+    })->name('account.ratings.edit');
 
     Route::get('/addresses', function () {
         return view('account.addresses');
-    })->name('account.addresses');
+    })->name('account.addresses.edit');
 });
